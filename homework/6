@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Графік відключень світла</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding: 20px; }
+        
+        table {
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            width: 30px;
+            height: 30px;
+            padding: 5px;
+        }
+
+      
+        .day-header {
+            text-align: left;
+            width: 100px;
+            font-weight: bold;
+        }
+        .no-light { background-color: #ced4da; color: #343a40; } 
+        .maybe { background-color: #f8f9fa; color: #adb5bd; }   
+        .has-light { background-color: #ffffff; }           
+        
+    
+        .current-day { background-color: #ffeb3b !important; }
+
+
+        .time-header {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            padding: 10px 2px;
+        }
+
+        .legend {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .box { width: 20px; height: 20px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th></th> <th class="time-header">00:00</th>
+                <th class="time-header">01:00</th>
+                <th class="time-header">02:00</th>
+                <th class="time-header">03:00</th>
+                <th class="time-header">04:00</th>
+                <th class="time-header">05:00</th>
+                <th class="time-header

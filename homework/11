@@ -1,0 +1,136 @@
+1111
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding: 20px; }
+        .form-container { border: 1px solid #ccc; padding: 20px; width: 400px; background-color: #f9f9f9; }
+        .form-group { display: flex; justify-content: space-between; margin-bottom: 15px; align-items: center; }
+        label { font-weight: bold; font-size: 14px; }
+        input[type="text"], input[type="password"], select { width: 220px; padding: 5px; border: 1px solid #999; }
+        .buttons { text-align: center; margin-top: 20px; }
+        button { padding: 5px 20px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form>
+            <div class="form-group">
+                <label>Login:</label>
+                <input type="text" name="login">
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" name="password">
+            </div>
+            <div class="form-group">
+                <label>City:</label>
+                <select name="city">
+                    <option value="kyiv">Kyiv</option>
+                    <option value="lviv">Lviv</option>
+                    <option value="odesa">Odesa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <div style="width: 220px;">
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Interests:</label>
+                <div style="width: 220px;">
+                    <input type="checkbox" name="int1"> Football
+                    <input type="checkbox" name="int2"> Chess
+                    <input type="checkbox" name="int3"> Music
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+2222
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Semantic Layout</title>
+    <style>
+        body { display: flex; flex-direction: column; gap: 10px; font-family: sans-serif; text-align: center; color: white; }
+        header, nav, main, aside, footer { padding: 20px; border-radius: 5px; }
+        
+        header { background-color: #4a90e2; }
+        nav { background-color: #f5a623; }
+        .content-wrapper { display: flex; gap: 10px; }
+        main { background-color: #50c878; flex: 3; height: 200px; }
+        aside { background-color: #e74c3c; flex: 1; }
+        footer { background-color: #9b59b6; }
+    </style>
+</head>
+<body>
+    <header>HEADER</header>
+    <nav>NAV</nav>
+    <div class="content-wrapper">
+        <main>MAIN</main>
+        <aside>ASIDE</aside>
+    </div>
+    <footer>FOOTER</footer>
+</body>
+</html>
+3333
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #eee; padding: 40px; }
+        fieldset { background-color: white; border: 1px solid #999; padding: 20px; width: 450px; margin: auto; }
+        legend { font-weight: bold; padding: 0 10px; }
+        .row { margin-bottom: 15px; display: flex; }
+        .row label { width: 100px; }
+        input[type="text"], textarea { flex: 1; padding: 5px; }
+        textarea { height: 100px; resize: vertical; }
+        .btn-row { text-align: right; }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Step 1: Your details</legend>
+            <div class="row">
+                <label>Name</label>
+                <input type="text" placeholder="First and last name">
+            </div>
+            <div class="row">
+                <label>Email</label>
+                <input type="text" placeholder="example@domain.com">
+            </div>
+            <div class="row">
+                <label>Phone</label>
+                <input type="text" placeholder="e.g. +380...">
+            </div>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Step 2: Your message</legend>
+            <div class="row">
+                <label>Message</label>
+                <textarea placeholder="Write your message here..."></textarea>
+            </div>
+            <div class="btn-row">
+                <button type="submit">Send Message</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

@@ -1,0 +1,175 @@
+1111
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Vertical Dropdown Menu</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 50px; }
+        
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 200px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        .menu > li {
+            position: relative; /* Щоб підменю позиціонувалося відносно пункту */
+            border-bottom: 1px solid #eee;
+        }
+
+        .menu li a {
+            display: block;
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+        }
+
+        /* Ефект при наведенні на пункт */
+        .menu li:hover > a {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Приховуємо підменю за замовчуванням */
+        .submenu {
+            display: none;
+            position: absolute;
+            left: 100%; /* Зсуваємо вправо від основного меню */
+            top: 0;
+            list-style: none;
+            padding: 0;
+            width: 180px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Показуємо підменю при наведенні на батьківський li */
+        .menu li:hover .submenu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="menu">
+        <li><a href="#">Електроніка</a>
+            <ul class="submenu">
+                <li><a href="#">Смартфони</a></li>
+                <li><a href="#">Ноутбуки</a></li>
+                <li><a href="#">Планшети</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Одяг</a>
+            <ul class="submenu">
+                <li><a href="#">Чоловічий</a></li>
+                <li><a href="#">Жіночий</a></li>
+                <li><a href="#">Дитячий</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Дім та сад</a></li>
+        <li><a href="#">Спорт</a></li>
+    </ul>
+
+</body>
+</html>
+22222
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Card</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f0f2f5; display: flex; justify-content: center; padding: 50px; }
+        
+        .product-card {
+            background-color: white;
+            width: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px); /* Легкий підйом при наведенні */
+        }
+
+        .image-container {
+            background-color: #fff;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category {
+            color: #888;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .title {
+            margin: 10px 0;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .buy-btn {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product-card">
+        <div class="image-container">
+            <img src="https://via.placeholder.com/200" alt="Product">
+        </div>
+        <div class="info">
+            <div class="category">Смартфони</div>
+            <div class="title">iPhone 15 Pro Max</div>
+            <div class="price">49 999 грн</div>
+            <button class="buy-btn">Купити</button>
+        </div>
+    </div>
+
+</body>
+</html>

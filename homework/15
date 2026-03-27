@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання - Pagination</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        .pagination {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .pagination li {
+            background-color: white;
+        }
+
+        .pagination a {
+            display: block;
+            padding: 10px 16px;
+            text-decoration: none;
+            color: #007bff; 
+            border-right: 1px solid #ddd;
+            transition: background-color 0.3s;
+        }
+
+        .pagination li:last-child a {
+            border-right: none;
+        }
+
+        .pagination a:hover {
+            background-color: #eee;
+        }
+
+        .pagination li.active a {
+            background-color: #007bff;
+            color: white;
+            cursor: default;
+        }
+
+        .pagination li.disabled a {
+            color: #ccc;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="pagination">
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li class="active"><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+
+</body>
+</html>

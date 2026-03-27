@@ -1,0 +1,152 @@
+11111
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1 - Фрукти</title>
+    <style>
+        body { background-color: #f0f0f0; padding: 50px; }
+        .list-container {
+            background-color: #e68a9e; 
+            padding: 20px;
+            width: 400px;
+        }
+        ol { list-style-type: none; counter-reset: my-counter; padding: 0; }
+        li {
+            background-color: #c95c73; 
+            margin-bottom: 10px;
+            padding: 10px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        li::before {
+            counter-increment: my-counter;
+            content: counter(my-counter) ". ";
+            margin-right: 15px;
+        }
+        .text-bg {
+            background-color: #8a3344; 
+            padding: 5px 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <ol>
+            <li><span class="text-bg">Apple</span></li>
+            <li><span class="text-bg">Orange</span></li>
+            <li><span class="text-bg">Pineapple</span></li>
+            <li><span class="text-bg">Pear</span></li>
+            <li><span class="text-bg">Cherry</span></li>
+        </ol>
+    </div>
+</body>
+</html>
+22222
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2 - To Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; }
+        .todo-box { background-color: white; width: 350px; margin: 20px auto; padding: 20px; }
+        h2 { margin-left: 40px; }
+        ul { list-style: none; padding: 0; }
+        li {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        li:nth-child(odd) { background-color: #add8e6; }
+        li:nth-child(even) { background-color: #c2e2ec; }
+        
+    
+        .checked {
+            background-color: #ddd !important;
+            text-decoration: line-through;
+            color: #555;
+        }
+        .icon { margin-right: 15px; font-size: 1.2em; }
+        .close { color: red; cursor: pointer; font-weight: bold; margin-left: auto; }
+    </style>
+</head>
+<body>
+    <div class="todo-box">
+        <h2>My To Do List</h2>
+        <ul>
+            <li><span class="icon">&#9744;</span> Hit the gym <span class="close">&times;</span></li>
+            <li class="checked"><span class="icon">&#9745;</span> Pay bills <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Meet John <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Buy eggs <span class="close">&times;</span></li>
+            <li class="checked"><span class="icon">&#9745;</span> Read a book <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Organize office <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Eat dinner <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Buy apples <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Meet George <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Feed the cat <span class="close">&times;</span></li>
+            <li class="checked"><span class="icon">&#9745;</span> Write a letter <span class="close">&times;</span></li>
+            <li><span class="icon">&#9744;</span> Run 1 km <span class="close">&times;</span></li>
+        </ul>
+    </div>
+</body>
+</html>
+3333
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 3 - Tag Definition</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px; background-color: #f9f9f9; }
+        .container { background-color: white; padding: 30px; max-width: 700px; border: 1px solid #eee; }
+        dt { font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        dd { margin-bottom: 20px; color: #333; }
+        .phonetic { color: #666; margin: 5px 0; }
+        .part-of-speech { font-style: italic; color: #555; margin-bottom: 10px; }
+        ol { padding-left: 20px; }
+        li { margin-bottom: 15px; }
+        .quote { color: #888; display: block; margin-top: 5px; }
+        .synonyms { color: #5b4a9c; font-size: 0.9em; }
+        b { color: #444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <dl>
+            <dt>TAG</dt>
+            <dd>
+                <div class="phonetic">[t&aelig;g]</div>
+                
+                <div class="part-of-speech">noun</div>
+                <ol>
+                    <li>
+                        a label attached to someone or something for the purpose of identification or to give other information.
+                        <span class="quote">"he gave his pet a collar with a metal name tag"</span>
+                        <div class="synonyms"><b>synonyms:</b> label, ticket, badge, mark, marker, tab, tally, sticker, docket, stub, chit, chitt, counterfoi, flag, stamp "a price tag"</div>
+                    </li>
+                    <li>a small piece or part that is attached to a main body.</li>
+                </ol>
+
+                <div class="part-of-speech">verb</div>
+                <ol>
+                    <li>
+                        attach a label to.
+                        <span class="quote">"mothers suspected that their babies had been wrongly tagged during an alarm at the hospital"</span>
+                        <div class="synonyms"><b>synonyms:</b> label, attach tags to, put a label on, mark, ticket, earmark, identify, docket, flag, indicate "the bottles were tagged with colour-coded labels"</div>
+                    </li>
+                    <li>
+                        add to something, especially as an afterthought or with no real connection.
+                        <span class="quote">"she meant to <b>tag</b> her question <b>on</b> at the end of her remarks"</span>
+                        <div class="synonyms"><b>synonyms:</b> add, tack, join, attach, append, affix, annex "their heads were so large that the rest of their bodies seemed <b>tagged on</b> as an afterthought"</div>
+                    </li>
+                </ol>
+            </dd>
+        </dl>
+    </div>
+</body>
+</html>

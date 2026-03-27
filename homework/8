@@ -1,0 +1,111 @@
+111
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Modal Window</title>
+    <style>
+        body { font-family: serif; line-height: 1.6; margin: 0; padding: 20px; color: #333; }
+        
+        .overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); 
+            z-index: 10;
+        }
+
+    
+        .modal {
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%); 
+            background: white;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            z-index: 20;
+        }
+
+        .modal h2 { margin-top: 0; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>What is Lorem Ipsum?</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ... (багато тексту для фону)</p>
+
+    <div class="overlay"></div>
+    <div class="modal">
+        <h2>MODAL WINDOW</h2>
+        <p>Mauris tristique sagittis tincidunt. Maecenas congue nisi porttitor volutpat mattis. Aliquam nec lorem mi. Suspendisse ornare, neque eget maximus cursus, augue diam convallis felis, at condimentum quam orci id diam.</p>
+    </div>
+</body>
+</html>
+2222
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Multilevel Menu</title>
+    <style>
+        nav { background-color: #5d9b71; }
+        ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        
+        li { position: relative; } 
+        
+        li a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            border-right: 1px solid #4a7d5b;
+        }
+
+        li:hover > a { background-color: #4a7d5b; } 
+
+      
+        ul ul {
+            display: none;
+            position: absolute;
+            top: 100%; left: 0;
+            flex-direction: column;
+            background-color: #5d9b71;
+            min-width: 150px;
+        }
+
+    
+        ul ul ul { top: 0; left: 100%; }
+
+        
+        li:hover > ul { display: flex; }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#">Categories</a>
+                <ul>
+                    <li><a href="#">Man</a></li>
+                    <li>
+                        <a href="#">Women</a>
+                        <ul>
+                            <li><a href="#">Dress</a></li>
+                            <li><a href="#">Pants</a></li>
+                            <li><a href="#">Shoes</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Kids</a></li>
+                </ul>
+            </li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+    <div style="padding: 20px;">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac augue quis ante blandit blandit eu et massa...</p>
+    </div>
+</body>
+</html>

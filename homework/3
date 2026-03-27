@@ -1,0 +1,141 @@
+1111
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1 - Фіксований фон</title>
+    <style>
+        body {
+        
+            background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b');
+            background-attachment: fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .content {
+            background-color: rgba(40, 80, 80, 0.8); 
+            color: white;
+            padding: 40px;
+            width: 70%;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eleifend urna euismod odio scelerisque interdum. Donec hendrerit in nunc sed dictum. Mauris commodo, libero in sodales consectetur, nulla ligula auctor justo, eu laoreet ex lacus vel dolor. Maecenas ultrices mauris vitae metus maximus, non rhoncus ex ullamcorper.</p>
+        <p>Nam blandit, libero quis elementum sagittis, enim eros cursus elit, nec mollis sapien ante id dolor. Aenean vestibulum dapibus lacinia. Sed venenatis tortor magna, nec tempor tortor luctus id. Ut elementum pellentesque orci a eleifend. Curabitur gravida massa in dui rutrum finibus. Morbi ornare pulvinar dolor at tristique. Donec mollis arcu erat, sit amet fringilla nunc porta ut.</p>
+        <p>(Додайте ще тексту з lipsum.com для появи вертикальної прокрутки...)</p>
+    </div>
+</body>
+</html>
+2222
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Computer Programming - Wikipedia</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.5; }
+        .contents-box { border: 1px solid #aaa; background-color: #f8f9fa; padding: 15px; width: 300px; }
+        .contents-box h2 { text-align: center; font-size: 1.1em; margin-top: 0; }
+        a { color: #0645ad; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        section { margin-top: 40px; border-top: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>Computer programming</h1>
+    <p>From Wikipedia, the free encyclopedia</p>
+    <hr>
+
+    <div class="contents-box">
+        <h2>Contents</h2>
+        <ol>
+            <li><a href="#history">History</a></li>
+            <li><a href="#modern">Modern programming</a></li>
+            <li><a href="#languages">Programming languages</a></li>
+            <li><a href="#programmers">Programmers</a></li>
+        </ol>
+    </div>
+
+    <section id="history">
+        <h2>History</h2>
+        <p>Programmable devices have existed at least as far back as 1206 AD...</p>
+    </section>
+
+    <section id="modern">
+        <h2>Modern programming</h2>
+        <p>Whatever the approach to development may be, the final program must satisfy some fundamental properties...</p>
+    </section>
+
+    <section id="languages">
+        <h2>Programming languages</h2>
+        <p>Different programming languages support different styles of programming...</p>
+    </section>
+
+    <section id="programmers">
+        <h2>Programmers</h2>
+        <p>Computer programmers are those who write computer software. Their jobs usually involve: coding, debugging, documentation...</p>
+    </section>
+</body>
+</html>
+3333
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Cats Gallery</title>
+    <style>
+        .gallery-container {
+            width: 500px;
+            border: 1px solid #ddd;
+            margin: 20px auto;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        .header { background-color: #f4f4f4; padding: 10px; font-weight: bold; border-bottom: 1px solid #ddd; }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            padding: 20px 0;
+        }
+        .thumbnails {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .thumbnails img {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gallery-container">
+        <div class="header">CATS GALLERY</div>
+        
+        <iframe src="cat1.png" name="display-frame"></iframe>
+
+        <div class="thumbnails">
+            <a href="cat1.png" target="display-frame"><img src="cat1.png" alt="Cat 1"></a>
+            <a href="cat2.png" target="display-frame"><img src="cat2.png" alt="Cat 2"></a>
+            <a href="cat3.png" target="display-frame"><img src="cat3.png" alt="Cat 3"></a>
+            <a href="cat4.png" target="display-frame"><img src="cat4.png" alt="Cat 4"></a>
+            <a href="cat5.png" target="display-frame"><img src="cat5.png" alt="Cat 5"></a>
+            <a href="cat6.png" target="display-frame"><img src="cat6.png" alt="Cat 6"></a>
+        </div>
+    </div>
+
+</body>
+</html>
