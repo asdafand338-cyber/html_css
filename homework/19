@@ -1,0 +1,43 @@
+111
+/* Базові стилі (Мобільна версія - менше 600px) */
+.event-card {
+  background-color: #063d37;
+  color: white;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 1.5rem; 
+  margin-bottom: 30px;
+}
+
+.meta-container {
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
+}
+
+.label {
+  display: block;
+  font-size: 0.7rem;
+  color: #a0b3b1;
+}
+
+/* Десктопна версія (більше 600px) */
+@media (min-width: 600px) {
+  .event-card {
+    padding: 60px;
+  }
+
+  h1 {
+    font-size: 2.5rem; 
+    max-width: 600px;
+  }
+
+  .meta-container {
+    flex-direction: row; 
+    align-items: center;
+    gap: 40px;
+  }
+}

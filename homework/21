@@ -1,0 +1,99 @@
+1111
+<div class="card-wrapper">
+    <div class="credit-card">
+        <div class="card-header">CREDIT CARD DETAILS</div>
+        <form>
+            <label>Card Number</label>
+            <input type="text" class="full-width" placeholder="1234 5678 9012 3456">
+            
+            <label>Name On Card</label>
+            <input type="text" class="full-width" placeholder="Name Surname">
+            
+            <div class="card-row">
+                <div class="field">
+                    <label>Expire Date</label>
+                    <div class="expire-inputs">
+                        <input type="text" placeholder="02">
+                        <input type="text" placeholder="2017">
+                    </div>
+                </div>
+                <div class="field">
+                    <label>CSV No.</label>
+                    <input type="password" placeholder="***">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+222222
+body {
+    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 50px;
+}
+
+.main-box {
+    width: 500px;
+    height: 300px;
+    background-color: #93c1c1; /* подобрал похожий цвет */
+    margin: 0 auto;
+    position: relative;
+    border-radius: 8px;
+    padding: 20px;
+    /* добавил небольшую тень для объема */
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
+.orange-top {
+    background-color: #d36324;
+    color: white;
+    padding: 10px 25px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    left: -15px; /* чтобы выходило за край как на скрине */
+    width: 350px;
+}
+
+.card-form {
+    margin-top: 80px;
+}
+
+.card-form p {
+    margin: 5px 0;
+    font-size: 13px;
+    color: #555;
+}
+
+.input-row input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: rgba(255,255,255,0.2); /* прозрачные инпуты */
+}
+
+.bottom-inputs {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.small-in {
+    width: 60px;
+    padding: 8px;
+    border: none;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.csv input {
+    width: 80px;
+    padding: 8px;
+    border: none;
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* немного кривовато закруглил края, чтобы было жизненно */
+input {
+    border-radius: 2px;
+}
