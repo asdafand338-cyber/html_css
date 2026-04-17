@@ -35,7 +35,7 @@ body {
 .main-box {
     width: 500px;
     height: 300px;
-    background-color: #93c1c1; /* подобрал похожий цвет */
+    background-color: #93c1c1; 
     margin: 0 auto;
     position: relative;
     border-radius: 8px;
@@ -51,7 +51,7 @@ body {
     font-weight: bold;
     position: absolute;
     top: 30px;
-    left: -15px; /* чтобы выходило за край как на скрине */
+    left: -15px; 
     width: 350px;
 }
 
@@ -70,7 +70,7 @@ body {
     padding: 8px;
     margin-bottom: 15px;
     border: none;
-    background-color: rgba(255,255,255,0.2); /* прозрачные инпуты */
+    background-color: rgba(255,255,255,0.2); 
 }
 
 .bottom-inputs {
@@ -93,7 +93,7 @@ body {
     background-color: rgba(255,255,255,0.2);
 }
 
-/* немного кривовато закруглил края, чтобы было жизненно */
+
 input {
     border-radius: 2px;
 }
