@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>моя робота</title>
+<style>
+    /* все в купі, без логіки */
+    .block1 { background-color: red; padding: 50px; }
+    .vhod { background: white; width: 250px; margin: 0 auto; border-radius: 10px; padding: 20px; text-align: center; }
+    .kartinka { width: 50px; height: 50px; background: yellow; border-radius: 50px; margin-left: 90px; }
+    
+    .zadanie2 { background-image: url('https://via.placeholder.com/500'); padding: 20px; }
+    .prozrachno { background: rgba(0,0,0,0.5); color: white; width: 80%; margin: auto; }
+    
+    /* забув про нормальні назви для кнопок */
+    .knopka1 { background: green; color: white; width: 100px; }
+    .knopka_fb { background: blue; color: white; }
+    
+    .reisy { background: lightblue; padding: 10px; }
+    .bilet { border: 1px solid black; background: white; margin: 5px; }
+</style>
+</head>
+<body>
+
+<div class="block1">
+    <div class="vhod">
+        <div class="kartinka"> :) </div>
+        <h1>Вхід</h1>
+        <input type="text" placeholder="логін"><br>
+        <input type="text" placeholder="пароль"> <br>
+        <button class="knopka1">УВІЙТИ</button>
+        <br>
+        <a href="#" style="color: red;">забув пароль</a>
+        <p>або через:</p>
+        <button class="knopka_fb">фб</button> 
+        <button style="background: cyan;">твіттер</button>
+    </div>
+</div>
+
+<hr>
+
+<div class="zadanie2">
+    <div class="prozrachno">
+        <h2 style="padding: 10px;">Напишіть нам</h2>
+        <div style="padding: 10px;">
+            Імя: <input type="text"> <br><br>
+            Фамілія: <input type="text"> <br><br>
+            Пошта: <input type="email"> <br><br>
+            Тема: <select><option>питання</option></select> <br><br>
+            Текст: <br>
+            <textarea></textarea> <br>
+            <button>ВІДПРАВИТИ</button>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="reisy">
+    <h1 align="center">АВІА БІЛЕТИ</h1>
+    <div style="background: white; padding: 10px;">
+        Куди: <input type="text"> Звідки: <input type="text"> Коли: <input type="date">
+        <button>Шукати!!!</button>
+    </div>
+    
+    <div style="display: flex;">
+        <div style="width: 30%; border: 1px solid grey;">
+            <h3>Фільтр</h3>
+            <input type="checkbox"> Прямий рейс <br>
+            <input type="checkbox"> Дешево
+        </div>
+        
+        <div style="width: 70%;">
+            <div class="bilet">
+                <b>Літак МАУ</b> ----- 2 години ----- <b>3000 грн</b>
+                <button>купити</button>
+            </div>
+            <div class="bilet">
+                <b>Літак СкайАп</b> ----- 3 години ----- <b>2500 грн</b>
+                <button>купити</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
