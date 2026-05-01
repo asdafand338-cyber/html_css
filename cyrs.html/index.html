@@ -1,0 +1,648 @@
+[25.04.2026 14:07] Xvveu ттмур: <!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix — Дивіться де завгодно</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+ 
+    :root {
+      --red: #e50914;
+      --red-hover: #c40812;
+      --black: #000000;
+      --dark: #141414;
+      --card-bg: #1a1a1a;
+      --grey: #808080;
+      --light: #e5e5e5;
+      --white: #ffffff;
+    }
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+    }
+
+    .logo {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+  
+    .btn-red {
+      display: inline-block;
+      background-color: var(--red);
+      color: var(--white);
+      padding: 0.65rem 1.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .btn-red:hover {
+      background-color: var(--red-hover);
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--white);
+      color: var(--black);
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      transition: background-color 0.2s;
+    }
+
+    .btn-white:hover {
+      background-color: rgba(255,255,255,0.8);
+    }
+
+    .btn-grey {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: rgba(109,109,110,0.7);
+      color: var(--white);
+      padding: 0.75rem 2rem;
+      border-radius: 4px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      transition: background-color 0.2s;
+    }
+
+    .btn-grey:hover {
+      background-color: rgba(109,109,110,0.4);
+    }
+
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-color: #000000;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.4);
+    }
+
+    .hero-fade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 30%, transparent 80%), linear-gradient(to top, var(--dark) 5%, transparent 30%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 42%;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--grey);
+      border-radius: 3px;
+      color: var(--light);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+[25.04.2026 14:07] Xvveu ттмур: .divider {
+      height: 6px;
+      background-color: #333;
+    }
+
+
+    .row-section {
+      padding: 2.5rem 4%;
+    }
+
+    .row-section h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cards-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+      gap: 0.4rem;
+    }
+
+
+    .card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 2/3;
+      background-color: var(--card-bg);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .card:hover img {
+      transform: scale(1.07);
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.6rem 0.6rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: linear-gradient(transparent, rgba(0,0,0,0.85));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .card:hover .card-title {
+      opacity: 1;
+    }
+
+    .feature-section {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+      padding: 5rem 7%;
+    }
+
+    .feature-section.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .feature-text {
+      flex: 1;
+    }
+
+    .feature-text h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .feature-text p {
+      font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--light);
+    }
+
+    .feature-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .feature-image img {
+      width: 100%;
+      max-width: 28rem;
+    }
+
+
+    .plans-section {
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    .plans-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 0.5rem;
+    }
+
+    .plans-section > p {
+      font-size: 1rem;
+      color: var(--light);
+      margin-bottom: 2.5rem;
+    }
+
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+      gap: 0.8rem;
+      max-width: 60rem;
+      margin: 0 auto 2rem;
+    }
+
+    .plan-card {
+      border-radius: 6px;
+      padding: 1.8rem 1.2rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .plan-card.blue  { background: linear-gradient(135deg, #1a237e, #283593); }
+    .plan-card.purple{ background: linear-gradient(135deg, #4a148c, #6a1b9a); }
+    .plan-card.red   { background: linear-gradient(135deg, #b71c1c, #c62828); }
+
+    .plan-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background-color: var(--red);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.25rem 0.5rem;
+      border-radius: 3px;
+    }
+
+    .plan-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--light);
+    }
+
+    .plan-price {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .plan-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .plan-features li {
+      font-size: 0.82rem;
+      color: var(--light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .plan-features li::before {
+      content: '✓';
+      color: #46d369;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    footer {
+      background-color: var(--black);
+      padding: 3rem 7%;
+      border-top: 1px solid #333;
+    }
+
+    footer > p {
+      color: var(--grey);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer > p a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+[25.04.2026 14:07] Xvveu ттмур: .footer-links a {
+      color: var(--grey);
+      font-size: 0.78rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      color: var(--grey);
+      font-size: 0.78rem;
+    }
+
+
+    @media (max-width: 768px) {
+      .hero-content { max-width: 90%; }
+      .feature-section,
+      .feature-section.reverse { 
+        flex-direction: column; 
+        gap: 2rem; 
+        padding: 3rem 5%; 
+      }
+      .nav-links a:not(.btn-red) { 
+        display: none; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-actions { 
+        flex-direction: column; 
+      }
+      .btn-white, .btn-grey { 
+        width: 100%; justify-content: center; 
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <nav class="navbar">
+    <span class="logo">NETFLIX</span>
+    <div class="nav-links">
+      <a href="catalog.html">Каталог</a>
+      <a href="movie.html">Серіали</a>
+      <a href="profile.html">Профіль</a>
+      <a href="login.html" class="btn-red">Увійти</a>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-fade"></div>
+    <div class="hero-content">
+      <h1>Stranger Things</h1>
+      <div class="hero-tags">
+        <span class="tag">98% збіг</span>
+        <span class="tag">2016</span>
+        <span class="tag">16+</span>
+        <span class="tag">4 сезони</span>
+      </div>
+      <p>Коли хлопчик зникає, його друзі та родина виявляють таємні секрети, надприродні сили та одну дивну дівчину.</p>
+      <div class="hero-actions">
+        <a href="movie.html" class="btn-white">▶️ Дивитись</a>
+        <a href="movie.html" class="btn-grey">ℹ️ Докладніше</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="row-section">
+    <h2>Популярне зараз</h2>
+    <div class="cards-row">
+
+      <div class="card">
+        <img src="/cursovaya/materials/midthings.webp" alt="Stranger Things">
+        <span class="card-title">Stranger Things</span>
+      </div>
+
+      <div class="card">
+        <img src="/cursovaya/materials/igrakalmar.jpg" alt="Squid Game">
+        <span class="card-title">Squid Game</span>
+      </div>
+
+      <div class="card">
+        <img src="/cursovaya/materials/midsday.webp" alt="Wednesday">
+        <span class="card-title">Wednesday</span>
+      </div>
+
+      <div class="card">
+        <img src="/cursovaya/materials/dark.webp" alt="Dark">
+        <span class="card-title">Dark</span>
+      </div>
+
+      <div class="card">
+        <img src="/cursovaya/materials/ozark.webp" alt="Ozark">
+        <span class="card-title">Ozark</span>
+      </div>
+
+      <div class="card">
+        <img src="/cursovaya/materials/crown.webp" alt="The Crown">
+        <span class="card-title">The Crown</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="row-section">
+
+    <h2>Нові серіали</h2>
+
+    <div class="cards-row">
+      <div class="card">
+        <img src="/cursovaya/materials/wtich.webp" alt="The Witcher">
+        <span class="card-title">The Witcher</span>
+      </div>
+      <div class="card">
+        <img src="/cursovaya/materials/mindhunter.jpg" alt="Mindhunter">
+        <span class="card-title">Mindhunter</span>
+      </div>
+      <div class="card">
+        <img src="/cursovaya/materials/breaking.jpg" alt="Breaking Bad">
+        <span class="card-title">Breaking Bad</span>
+      </div>
+      <div class="card">
+        <img src="/cursovaya/materials/black.jpg" alt="Black Mirror">
+        <span class="card-title">Black Mirror</span>
+      </div>
+      <div class="card">
+        <img src="/cursovaya/materials/moneyh.webp" alt="Money Heist">
+        <span class="card-title">Money Heist</span>
+      </div>
+      <div class="card">
+        <img src="/cursovaya/materials/narcos.jpg" alt="Narcos">
+        <span class="card-title">Narcos</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="feature-section">
+
+    <div class="feature-text">
+
+      <h2>Насолоджуйтесь на великому екрані</h2>
+[25.04.2026 14:07] Xvveu ттмур: <p>Дивіться на Smart TV, PlayStation, Xbox, Chromecast та сотнях інших пристроїв. Якість до 4K UHD.</p>
+
+    </div>
+
+    <div class="feature-image">
+      <img src="/cursovaya/materials/tv.png" alt="Телевізор">
+
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="feature-section reverse">
+    
+    <div class="feature-text">
+      <h2>Завантажуйте для перегляду офлайн</h2>
+      <p>Зберігайте серіали на телефон і дивіться без інтернету — у дорозі, в метро, де завгодно.</p>
+    </div>
+    <div class="feature-image">
+      <img src="/cursovaya/materials/mobile-0819.jpg" alt="Мобільний">
+    </div>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="plans-section">
+
+    <h2>Оберіть свій план</h2>
+    <p>Дивіться скрізь. Відміняйте будь-коли.</p>
+
+    <div class="plans-grid">
+      <div class="plan-card purple">
+        <h3>Стандартний з рекламою</h3>
+        <div class="plan-price">99 ₴/міс</div>
+        <ul class="plan-features">
+          <li>Full HD 1080p</li>
+          <li>2 екрани одночасно</li>
+          <li>Реклама під час перегляду</li>
+        </ul>
+
+      </div>
+
+      <div class="plan-card blue">
+        <h3>Стандартний</h3>
+        <div class="plan-price">199 ₴/міс</div>
+        <ul class="plan-features">
+          <li>Full HD 1080p</li>
+          <li>2 екрани одночасно</li>
+          <li>Завантаження на 2 пристрої</li>
+        </ul>
+      </div>
+
+      <div class="plan-card red">
+        <span class="plan-badge">Найкращий</span>
+        <h3>Преміум</h3>
+        <div class="plan-price">299 ₴/міс</div>
+        <ul class="plan-features">
+          <li>4K Ultra HD + HDR</li>
+          <li>4 екрани одночасно</li>
+          <li>Завантаження на 6 пристроїв</li>
+          <li>Просторовий звук</li>
+        </ul>
+      </div>
+    </div>
+
+    <a href="login.html" class="btn-red">Розпочати</a>
+
+  </section>
+
+  <div class="divider"></div>
+
+  <footer>
+
+    <p>Питання? Телефонуйте: <a href="#">0 800 509 417</a></p>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="404.html">Сторінка 404</a>
+      <a href="#">Центр допомоги</a>
+      <a href="#">Аккаунт</a>
+      <a href="#">Медіацентр</a>
+      <a href="#">Про Netflix</a>
+      <a href="#">Вакансії</a>
+      <a href="#">Умови використання</a>
+      <a href="#">Конфіденційність</a>
+      <a href="#">Контакти</a>
+      <a href="#">Правові зауваження</a>
+    </div>
+    <p class="footer-bottom">Ne Netflix Україна</p>
+
+  </footer>
+
+</body>
+</html>

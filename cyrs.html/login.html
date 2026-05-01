@@ -1,0 +1,355 @@
+[25.04.2026 14:07] Xvveu ттмур: <!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Увійти — Netflix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --red: #e50914;
+      --red-hover: #c40812;
+      --black: #000000;
+      --dark: #141414;
+      --input-bg: #333333;
+      --input-border: #454545;
+      --grey: #808080;
+      --light: #b3b3b3;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--black);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+
+
+    .navbar {
+      position: relative;
+      z-index: 1;
+      padding: 1.2rem 4%;
+    }
+
+    .logo {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+
+    .form-page {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.78);
+      padding: clamp(2rem, 5vw, 3.5rem) clamp(1.5rem, 5vw, 4rem);
+      border-radius: 6px;
+      width: 100%;
+      max-width: 28rem;
+    }
+
+    .login-box h1 {
+      font-size: clamp(1.8rem, 4vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 1.8rem;
+    }
+
+
+    .field {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .field label {
+      font-size: 0.82rem;
+      color: var(--light);
+      font-weight: 500;
+    }
+
+    .field input {
+      width: 100%;
+      background-color: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field input:focus {
+      border-color: var(--light);
+    }
+
+    .field input::placeholder {
+      color: var(--grey);
+    }
+
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0.5rem 0 1.5rem;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      width: 1rem;
+      height: 1rem;
+      accent-color: var(--grey);
+      cursor: pointer;
+    }
+
+    .checkbox-row label {
+      font-size: 0.85rem;
+      color: var(--light);
+      cursor: pointer;
+    }
+
+    .btn-submit {
+      display: block;
+      width: 100%;
+      background-color: var(--red);
+      color: var(--white);
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      transition: background-color 0.2s;
+      margin-bottom: 1.2rem;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--red-hover);
+    }
+
+    .forgot-link {
+      display: block;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--light);
+      margin-bottom: 2rem;
+    }
+
+    .forgot-link:hover {
+      text-decoration: underline;
+    }
+
+
+    .or-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      color: var(--grey);
+      font-size: 0.85rem;
+    }
+
+    .or-row::before,
+    .or-row::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background-color: var(--grey);
+    }
+[25.04.2026 14:07] Xvveu ттмур: .btn-code {
+      display: block;
+      width: 100%;
+      background-color: rgba(109,109,110,0.3);
+      color: var(--white);
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      transition: background-color 0.2s;
+    }
+
+    .btn-code:hover {
+      background-color: rgba(109,109,110,0.5);
+    }
+
+
+    .signup-text {
+      color: var(--grey);
+      font-size: 0.9rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .signup-text a {
+      color: var(--white);
+    }
+
+    .signup-text a:hover {
+      text-decoration: underline;
+    }
+
+    .recaptcha-note {
+      font-size: 0.72rem;
+      color: var(--grey);
+      text-align: center;
+      line-height: 1.5;
+      margin-top: 1rem;
+    }
+
+    .recaptcha-note a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+
+
+    footer {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 2rem 7%;
+      border-top: 1px solid #333;
+    }
+
+    footer > p {
+      color: var(--grey);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    footer > p a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--grey);
+      font-size: 0.75rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .login-box {
+        border-radius: 0;
+        padding: 2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="page-bg"></div>
+
+ <nav class="navbar">
+    <a href="index.html" class="logo">NETFLIX</a>
+  </nav>
+
+ <div class="form-page">
+    <div class="login-box">
+      <h1>Увійти</h1>
+
+      <form action="#" method="post">
+
+        <div class="field">
+          <label for="email">Email або номер телефону</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="example@email.com"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Пароль</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Введіть пароль"
+            minlength="4"
+            required
+          >
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="remember" name="remember">
+          <label for="remember">Запам'ятати мене</label>
+        </div>
+
+       <button type="submit" class="btn-submit">Увійти</button>
+
+        <a href="#" class="forgot-link">Забули пароль?</a>
+
+       <div class="or-row">АБО</div>
+
+        <button type="button" class="btn-code">Використати код для входу</button>
+        
+        <p class="signup-text">
+          Вперше на Netflix? <a href="index.html">Підпишіться зараз.</a>
+        </p>
+    
+        <p class="recaptcha-note">
+          Ця сторінка захищена Google reCAPTCHA.
+          <a href="#">Дізнатися більше.</a>
+        </p>
+
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>Питання? Телефонуйте: <a href="#">0 800 509 417</a></p>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="#">Центр допомоги</a>
+      <a href="#">Умови використання</a>
+      <a href="#">Конфіденційність</a>
+      <a href="#">Настройки файлів cookie</a>
+      <a href="#">Корпоративна інформація</a>
+    </div>
+  </footer>
+
+</body>
+</html>

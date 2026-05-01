@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2 - Випадаюче меню</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 40px;
+            margin: 0;
+        }
+
+        
+        
+        
+        .nav-menu {
+            list-style: none;
+            display: flex; 
+            background-color: #5ba078; 
+            padding: 0;
+            margin: 0;
+            width: fit-content;
+        }
+
+        /* Пункти меню */
+        .nav-menu li {
+            position: relative; 
+        }
+
+        
+        .nav-menu a {
+            display: block;
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+        }
+
+        
+        .nav-menu li:hover > a {
+            background-color: #3e6d52;
+        }
+
+        
+        .submenu, .inner-submenu {
+            display: none;
+            position: absolute;
+            background-color: #5ba078;
+            list-style: none;
+            padding: 0;
+            min-width: 160px;
+            z-index: 99; 
+        }
+
+        
+        .nav-menu li:hover > .submenu {
+            display: block;
+        }
+
+       
+        .inner-submenu {
+            top: 0;
+            left: 100%; 
+        }
+
+        
+        .has-children:hover > .inner-submenu {
+            display: block;
+        }
+
+        .content-box {
+            background-color: white;
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        h2 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            
+            <li>
+                <a href="#">Categories</a>
+                <ul class="submenu">
+                    <li><a href="#">Man</a></li>
+                    
+                    <li class="has-children">
+                        <a href="#">Woomen</a>
+                        <ul class="inner-submenu">
+                            <li><a href="#">Dress</a></li>
+                            <li><a href="#">Pants</a></li>
+                            <li><a href="#">Shoes</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#">Kids</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contacts</a></li>
+        </ul>
+    </nav>
+
+    <div class="content-box">
+        <h2>What is Lorem Ipsum?</h2>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac augue quis ante blandit blandit eu et massa. 
+            Integer libero dui, pellentesque id laoreet eu, dignissim non ex. Donec a purus non augue rutrum semper et quis justo. 
+            Etiam ultrices ante at elit porttitor malesuada. Morbi feugiat tempus massa non venenatis. 
+            Suspendisse id leo eros. Fusce sodales elementum purus, eu rutrum arcu blandit eu.
+        </p>
+    </div>
+
+</body>
+</html>

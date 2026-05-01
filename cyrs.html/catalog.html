@@ -1,0 +1,686 @@
+[25.04.2026 14:07] Xvveu ттмур: <!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Netflix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+
+    :root {
+      --red: #e50914;
+      --red-hover: #c40812;
+      --black: #000000;
+      --dark: #141414;
+      --card-bg: #1a1a1a;
+      --filter-bg: #1f1f1f;
+      --grey: #808080;
+      --light: #d2d2d2;
+      --white: #ffffff;
+      --green: #46d369;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--dark);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 4%;
+      background-color: var(--black);
+      border-bottom: 1px solid #222;
+    }
+
+    .logo {
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      color: var(--light);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links a.active { color: var(--white); font-weight: 600; }
+
+    .btn-red {
+      display: inline-block;
+      background-color: var(--red);
+      color: var(--white);
+      padding: 0.55rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .btn-red:hover { background-color: var(--red-hover); }
+
+    .page-header {
+      padding: 2.5rem 4% 1.5rem;
+      border-bottom: 1px solid #222;
+    }
+
+    .page-header h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      margin-bottom: 0.4rem;
+    }
+
+    .page-header p {
+      font-size: 0.9rem;
+      color: var(--grey);
+    }
+
+    .filters {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.2rem 4%;
+      background-color: var(--filter-bg);
+      flex-wrap: wrap;
+      border-bottom: 1px solid #222;
+    }
+
+    .filter-label {
+      font-size: 0.85rem;
+      color: var(--grey);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .filter-btn {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid #555;
+      color: var(--light);
+      background-color: transparent;
+      transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover {
+      background-color: #333;
+      border-color: var(--light);
+      color: var(--white);
+    }
+
+    .filter-btn.active {
+      background-color: var(--white);
+      border-color: var(--white);
+      color: var(--black);
+      font-weight: 700;
+    }
+
+    .catalog-section {
+      padding: 2.5rem 4%;
+    }
+
+    .catalog-section + .catalog-section {
+      padding-top: 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 700;
+    }
+
+    .see-all {
+      font-size: 0.82rem;
+      color: var(--grey);
+      transition: color 0.2s;
+    }
+
+    .see-all:hover { color: var(--white); 
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+      gap: 0.5rem;
+    }
+[25.04.2026 14:07] Xvveu ттмур: .catalog-card {
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .catalog-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.7);
+      z-index: 2;
+      position: relative;
+    }
+
+    .card-poster {
+      aspect-ratio: 2/3;
+      overflow: hidden;
+    }
+
+    .card-poster img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.25s;
+    }
+
+    .catalog-card:hover .card-poster img {
+      filter: brightness(0.7);
+    }
+
+    .card-info {
+      padding: 0.7rem 0.7rem 0.6rem;
+    }
+
+    .card-info h3 {
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .card-match {
+      font-size: 0.72rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .card-year {
+      font-size: 0.72rem;
+      color: var(--grey);
+    }
+
+    .card-age {
+      font-size: 0.65rem;
+      border: 1px solid var(--grey);
+      color: var(--grey);
+      padding: 0.05rem 0.3rem;
+      border-radius: 2px;
+    }
+
+
+    .wide-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
+      gap: 0.5rem;
+    }
+
+    .wide-card {
+      background-color: var(--card-bg);
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.25s;
+    }
+
+    .wide-card:hover {
+      transform: scale(1.03);
+    }
+
+    .wide-card img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .wide-card-body {
+      padding: 0.8rem;
+    }
+
+    .wide-card-body h3 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .wide-card-body p {
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--light);
+    }
+
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 3rem 4%;
+    }
+
+    .page-btn {
+      display: inline-block;
+      width: 2.4rem;
+      height: 2.4rem;
+      border-radius: 4px;
+      border: 1px solid #444;
+      background-color: transparent;
+      color: var(--light);
+      font-size: 0.85rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      text-align: center;
+      line-height: 2.4rem;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+
+    .page-btn:hover {
+      background-color: #333;
+      border-color: var(--light);
+    }
+
+    .page-btn.active {
+      background-color: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+      font-weight: 700;
+    }
+
+ 
+    footer {
+      background-color: var(--black);
+      padding: 3rem 7%;
+      border-top: 1px solid #333;
+    }
+
+    footer > p {
+      color: var(--grey);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    footer > p a {
+      color: var(--grey);
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      color: var(--grey);
+      font-size: 0.78rem;
+    }
+
+    .footer-links a:hover { text-decoration: underline; }
+
+    .footer-bottom { color: var(--grey); font-size: 0.78rem; }
+
+
+    @media (max-width: 768px) {
+      .nav-links a:not(.btn-red):not(.active) { display: none; }
+      .filters { gap: 0.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      .catalog-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+[25.04.2026 14:07] Xvveu ттмур: <nav class="navbar">
+    <a href="index.html" class="logo">NETFLIX</a>
+    <div class="nav-links">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html" class="active">Каталог</a>
+      <a href="movie.html">Серіали</a>
+      <a href="profile.html">Профіль</a>
+      <a href="login.html" class="btn-red">Увійти</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <h1>Каталог фільмів і серіалів</h1>
+    <p>Понад 15 000 назв доступні для перегляду</p>
+  </div>
+
+  <div class="filters">
+    <span class="filter-label">Жанр:</span>
+    <span class="filter-btn active">Всі</span>
+    <span class="filter-btn">Трилери</span>
+    <span class="filter-btn">Комедії</span>
+    <span class="filter-btn">Драми</span>
+    <span class="filter-btn">Жахи</span>
+    <span class="filter-btn">Фантастика</span>
+    <span class="filter-btn">Документальні</span>
+    <span class="filter-btn">Аніме</span>
+    <span class="filter-btn">Романтика</span>
+  </div>
+
+
+  <section class="catalog-section">
+    <div class="section-header">
+      <h2>Нове цього місяця</h2>
+      <a href="#" class="see-all">Дивитись все →</a>
+    </div>
+    <div class="wide-grid">
+      <a href="movie.html" class="wide-card">
+        <img src="/cursovaya/materials/strangerposter.jpg" alt="Stranger Things">
+        <div class="wide-card-body">
+          <h3>Stranger Things — Сезон 4</h3>
+          <p>Нові загрози з Перевернутого світу повертаються у Гокінс.</p>
+        </div>
+      </a>
+      <a href="#" class="wide-card">
+        <img src="/cursovaya/materials/wednesdayposter.jpg" alt="Wednesday">
+        <div class="wide-card-body">
+          <h3>Wednesday — Сезон 2</h3>
+          <p>Венздей Аддамс повертається до академії Невермор.</p>
+        </div>
+      </a>
+      <a href="#" class="wide-card">
+        <img src="/cursovaya/materials/sqyuidposter.jpg" alt="Squid Game 3">
+        <div class="wide-card-body">
+          <h3>Squid Game — Сезон 3</h3>
+          <p>Гі-хун повертається, щоб знищити організацію ігор.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+[25.04.2026 14:07] Xvveu ттмур: <section class="catalog-section">
+    <div class="section-header">
+      <h2>Популярні серіали</h2>
+      <a href="#" class="see-all">Дивитись все →</a>
+    </div>
+    <div class="catalog-grid">
+      <a href="movie.html" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/midthings.webp" alt="Stranger Things">
+        </div>
+        <div class="card-info">
+          <h3>Stranger Things</h3>
+          <div class="card-meta">
+            <span class="card-match">98%</span>
+            <span class="card-year">2016</span>
+            <span class="card-age">16+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/igrakalmar.jpg" alt="Squid Game">
+        </div>
+        <div class="card-info">
+          <h3>Squid Game</h3>
+          <div class="card-meta">
+            <span class="card-match">97%</span>
+            <span class="card-year">2021</span>
+            <span class="card-age">18+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/midsday.webp" alt="Wednesday">
+        </div>
+        <div class="card-info">
+          <h3>Wednesday</h3>
+          <div class="card-meta">
+            <span class="card-match">95%</span>
+            <span class="card-year">2022</span>
+            <span class="card-age">14+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/dark.webp" alt="Dark">
+        </div>
+        <div class="card-info">
+          <h3>Dark</h3>
+          <div class="card-meta">
+            <span class="card-match">96%</span>
+            <span class="card-year">2017</span>
+            <span class="card-age">16+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/ozark.webp" alt="Ozark">
+        </div>
+        <div class="card-info">
+          <h3>Ozark</h3>
+          <div class="card-meta">
+            <span class="card-match">93%</span>
+            <span class="card-year">2017</span>
+            <span class="card-age">18+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/crown.webp" alt="The Crown">
+        </div>
+        <div class="card-info">
+          <h3>The Crown</h3>
+          <div class="card-meta">
+            <span class="card-match">91%</span>
+            <span class="card-year">2016</span>
+            <span class="card-age">14+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/breaking.jpg" alt="Breaking Bad">
+        </div>
+        <div class="card-info">
+          <h3>Breaking Bad</h3>
+          <div class="card-meta">
+            <span class="card-match">99%</span>
+            <span class="card-year">2008</span>
+            <span class="card-age">18+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/black.jpg" alt="Black Mirror">
+        </div>
+        <div class="card-info">
+          <h3>Black Mirror</h3>
+          <div class="card-meta">
+            <span class="card-match">88%</span>
+            <span class="card-year">2011</span>
+            <span class="card-age">16+</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+[25.04.2026 14:07] Xvveu ттмур: <section class="catalog-section">
+    <div class="section-header">
+      <h2>Популярні фільми</h2>
+      <a href="#" class="see-all">Дивитись все →</a>
+    </div>
+    <div class="catalog-grid">
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/rednot.jpg"  alt="Red Notice">
+        </div>
+        <div class="card-info">
+          <h3>Red Notice</h3>
+          <div class="card-meta">
+            <span class="card-match">87%</span>
+            <span class="card-year">2021</span>
+            <span class="card-age">13+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/gray.jpg"  alt="The Gray Man">
+        </div>
+        <div class="card-info">
+          <h3>The Gray Man</h3>
+          <div class="card-meta">
+            <span class="card-match">84%</span>
+            <span class="card-year">2022</span>
+            <span class="card-age">16+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/extrac.webp"  alt="Extraction">
+        </div>
+        <div class="card-info">
+          <h3>Extraction</h3>
+          <div class="card-meta">
+            <span class="card-match">89%</span>
+            <span class="card-year">2020</span>
+            <span class="card-age">18+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/irish.jpg"  alt="The Irishman">
+        </div>
+        <div class="card-info">
+          <h3>The Irishman</h3>
+          <div class="card-meta">
+            <span class="card-match">92%</span>
+            <span class="card-year">2019</span>
+            <span class="card-age">18+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/knivs.jpg"  alt="Knives Out">
+        </div>
+        <div class="card-info">
+          <h3>Knives Out</h3>
+          <div class="card-meta">
+            <span class="card-match">94%</span>
+            <span class="card-year">2019</span>
+            <span class="card-age">13+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/birdbox.jpg"  alt="Bird Box">
+        </div>
+        <div class="card-info">
+          <h3>Bird Box</h3>
+          <div class="card-meta">
+            <span class="card-match">82%</span>
+            <span class="card-year">2018</span>
+            <span class="card-age">16+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/glassonion.jpg"  alt="Glass Onion">
+        </div>
+        <div class="card-info">
+          <h3>Glass Onion</h3>
+          <div class="card-meta">
+            <span class="card-match">90%</span>
+            <span class="card-year">2022</span>
+            <span class="card-age">13+</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="catalog-card">
+        <div class="card-poster">
+          <img src="/cursovaya/materials/dontlookup.jpg"  alt="Don't Look Up">
+        </div>
+        <div class="card-info">
+          <h3>Don't Look Up</h3>
+          <div class="card-meta">
+            <span class="card-match">85%</span>
+            <span class="card-year">2021</span>
+            <span class="card-age">14+</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+
+  <div class="pagination">
+    <span class="page-btn">←</span>
+    <span class="page-btn active">1</span>
+    <span class="page-btn">2</span>
+    <span class="page-btn">3</span>
+    <span class="page-btn">4</span>
+    <span class="page-btn">5</span>
+    <span class="page-btn">→</span>
+  </div>
+[25.04.2026 14:07] Xvveu ттмур: <footer>
+    <p>Питання? Телефонуйте: <a href="#">0 800 509 417</a></p>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="404.html">Сторінка 404</a>
+      <a href="#">Центр допомоги</a>
+      <a href="#">Аккаунт</a>
+      <a href="#">Медіацентр</a>
+      <a href="#">Про Netflix</a>
+      <a href="#">Вакансії</a>
+      <a href="#">Умови використання</a>
+      <a href="#">Конфіденційність</a>
+    </div>
+    <p class="footer-bottom">Ne Netflix Україна</p>
+  </footer>
+
+</body>
+</html>

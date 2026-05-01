@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Вибір плану передплати - Учнівська робота</title>
+    <style>
+      
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .pricing-table {
+            display: flex;
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            gap: 15px;
+        }
+
+        .card {
+            width: 220px;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            
+            transition: transform 1s ease; 
+            
+            position: relative;
+            z-index: 1;
+        }
+
+        
+        .card:hover {
+            transform: scale(1.08);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        
+        .card h3 {
+            font-size: 14px;
+            margin: 0;
+            padding: 15px 0;
+            text-transform: uppercase;
+            border-bottom: 2px solid #eee;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: bold;
+            margin-top: 25px;
+        }
+
+        .sub-text {
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            font-size: 13px;
+            line-height: 2.2;
+            color: #333;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        
+        .enterprise h3 { border-bottom-color: #d64550; }
+        .enterprise .btn { background-color: #d64550; }
+
+        .professional h3 { border-bottom-color: #f1a14b; }
+        .professional .btn { background-color: #f1a14b; }
+
+        .standard h3 { border-bottom-color: #4a89aa; }
+        .standard .btn { background-color: #4a89aa; }
+
+        .basic h3 { border-bottom-color: #7fbb56; }
+        .basic .btn { background-color: #7fbb56; }
+
+    </style>
+</head>
+<body>
+
+    <div class="pricing-table">
+        <!-- Блок Enterprise -->
+        <div class="card enterprise">
+            <h3>Enterprise</h3>
+            <div class="price">$69</div>
+            <div class="sub-text">per month</div>
+            <ul class="features">
+                <li>10GB disk space</li>
+                <li>100GB monthly bandwidth</li>
+                <li>20 email accounts</li>
+                <li>Unlimited subdomains</li>
+            </ul>
+            <a href="#" class="btn">BUY</a>
+        </div>
+
+        <!-- Блок Professional -->
+        <div class="card professional">
+            <h3>Professional</h3>
+            <div class="price">$29</div>
+            <div class="sub-text">per month</div>
+            <ul class="features">
+                <li>5GB disk space</li>
+                <li>60GB monthly bandwidth</li>
+                <li>10 email accounts</li>
+                <li>Unlimited subdomains</li>
+            </ul>
+            <a href="#" class="btn">BUY</a>
+        </div>
+
+        <!-- Блок Standard -->
+        <div class="card standard">
+            <h3>Standard</h3>
+            <div class="price">$19</div>
+            <div class="sub-text">per month</div>
+            <ul class="features">
+                <li>3GB disk space</li>
+                <li>30GB monthly bandwidth</li>
+                <li>5 email accounts</li>
+                <li>Unlimited subdomains</li>
+            </ul>
+            <a href="#" class="btn">BUY</a>
+        </div>
+
+        <!-- Блок Basic -->
+        <div class="card basic">
+            <h3>Basic</h3>
+            <div class="price">$9</div>
+            <div class="sub-text">per month</div>
+            <ul class="features">
+                <li>1GB disk space</li>
+                <li>10GB monthly bandwidth</li>
+                <li>2 email accounts</li>
+                <li>Unlimited subdomains</li>
+            </ul>
+            <a href="#" class="btn">BUY</a>
+        </div>
+    </div>
+
+</body>
+</html>

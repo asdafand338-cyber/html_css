@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>English Tenses Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="table-wrapper">
+    <table class="grammar-table">
+        <thead>
+            <tr class="main-header">
+                <th class="bg-yellow">ASPECT</th>
+                <th class="bg-blue">SIMPLE</th>
+                <th class="bg-red">PROGRESSIVE</th>
+                <th class="bg-green">PERFECT</th>
+                <th class="bg-purple">PERFECT PROGRESSIVE</th>
+            </tr>
+            <tr class="meaning-header">
+                <th rowspan="2" class="bg-yellow">MEANING</th>
+                <td class="bg-blue italic">a common aspect</td>
+                <td class="bg-red italic">a process</td>
+                <td class="bg-green italic">priority</td>
+                <td class="bg-purple italic">priority + process</td>
+            </tr>
+            <tr class="question-header">
+                <th class="bg-blue">When?</th>
+                <th class="bg-red">At what time?</th>
+                <th class="bg-green">By what time?</th>
+                <th class="bg-purple">Since what time? How long?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="period-row">
+                <td class="bg-yellow italic">Period of time</td>
+                <td class="bg-blue-light">usually, often, always...</td>
+                <td class="bg-red-light">now, at the moment</td>
+                <td class="bg-green-light">ever, never, just, already...</td>
+                <td class="bg-purple-light">since 3 p.m., for a long time...</td>
+            </tr>
+            <tr>
+                <th rowspan="3" class="bg-yellow side-label">Present</th>
+                <td class="bg-blue-light"><b>+</b> &nbsp; V / Vs</td>
+                <td class="bg-red-light"><b>+</b> &nbsp; am/is/are + Ving</td>
+                <td class="bg-green-light"><b>+</b> &nbsp; have/has + Ved/V3</td>
+                <td class="bg-purple-light"><b>+</b> &nbsp; have/has + been + Ving</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>?</b> &nbsp; do/does + V</td>
+                <td class="bg-red-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-green-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-purple-light"><b>?</b> &nbsp; inversion</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>-</b> &nbsp; do/does + not + V</td>
+                <td class="bg-red-light"><b>-</b> &nbsp; am/is/are + not + Ving</td>
+                <td class="bg-green-light"><b>-</b> &nbsp; have/has + not + Ved/V3</td>
+                <td class="bg-purple-light"><b>-</b> &nbsp; have/has + not + been + Ving</td>
+            </tr>
+
+            <tr class="period-row">
+                <td class="bg-yellow italic">Period of time</td>
+                <td class="bg-blue-light">yesterday, last week...</td>
+                <td class="bg-red-light">yesterday at 3p.m...</td>
+                <td class="bg-green-light">yesterday by 3p.m...</td>
+                <td class="bg-purple-light">yesterday since 3p.m...</td>
+            </tr>
+            <tr>
+                <th rowspan="3" class="bg-yellow side-label">Past</th>
+                <td class="bg-blue-light"><b>+</b> &nbsp; Ved/V2</td>
+                <td class="bg-red-light"><b>+</b> &nbsp; was/were + Ving</td>
+                <td class="bg-green-light"><b>+</b> &nbsp; had + Ved/V3</td>
+                <td class="bg-purple-light"><b>+</b> &nbsp; had + been + Ving</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>?</b> &nbsp; did + V</td>
+                <td class="bg-red-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-green-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-purple-light"><b>?</b> &nbsp; inversion</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>-</b> &nbsp; did + not + V</td>
+                <td class="bg-red-light"><b>-</b> &nbsp; was/were + not + Ving</td>
+                <td class="bg-green-light"><b>-</b> &nbsp; had + not + Ved/V3</td>
+                <td class="bg-purple-light"><b>-</b> &nbsp; had + not + been + Ving</td>
+            </tr>
+
+            <tr class="period-row">
+                <td class="bg-yellow italic">Period of time</td>
+                <td class="bg-blue-light">tomorrow, next week...</td>
+                <td class="bg-red-light">tomorrow at 3p.m...</td>
+                <td class="bg-green-light">tomorrow by 3p.m...</td>
+                <td class="bg-purple-light">tomorrow since 3p.m...</td>
+            </tr>
+            <tr>
+                <th rowspan="3" class="bg-yellow side-label">Future</th>
+                <td class="bg-blue-light"><b>+</b> &nbsp; will + V</td>
+                <td class="bg-red-light"><b>+</b> &nbsp; will + be + Ving</td>
+                <td class="bg-green-light"><b>+</b> &nbsp; will + have + Ved/V3</td>
+                <td class="bg-purple-light"><b>+</b> &nbsp; will + have + been + Ving</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-red-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-green-light"><b>?</b> &nbsp; inversion</td>
+                <td class="bg-purple-light"><b>?</b> &nbsp; inversion</td>
+            </tr>
+            <tr>
+                <td class="bg-blue-light"><b>-</b> &nbsp; won't + V</td>
+                <td class="bg-red-light"><b>-</b> &nbsp; won't + be + Ving</td>
+                <td class="bg-green-light"><b>-</b> &nbsp; won't + have + Ved/V3</td>
+                <td class="bg-purple-light"><b>-</b> &nbsp; won't + have + been + Ving</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

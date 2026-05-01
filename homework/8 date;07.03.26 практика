@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графік відключень</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="schedule-container">
+    <table>
+        <thead>
+            <tr>
+                <th></th> <th>00:00</th><th>01:00</th><th>02:00</th><th>03:00</th><th>04:00</th><th>05:00</th>
+                <th>06:00</th><th>07:00</th><th>08:00</th><th>09:00</th><th>10:00</th><th>11:00</th>
+                <th>12:00</th><th>13:00</th><th>14:00</th><th>15:00</th><th>16:00</th><th>17:00</th>
+                <th>18:00</th><th>19:00</th><th>20:00</th><th>21:00</th><th>22:00</th><th>23:00</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="day">Понеділок</td>
+                <td class="maybe"></td><td class="maybe"></td><td class="maybe"></td>
+                <td class="off"></td><td class="off"></td><td class="off"></td>
+                <td class="off"></td><td class="on"></td><td class="on"></td>
+                </tr>
+            <tr class="active-day">
+                <td class="day">П'ятниця</td>
+                <td class="off"></td><td class="on"></td><td class="on"></td>
+                <td class="maybe"></td><td class="maybe"></td><td class="maybe"></td>
+                <td class="off"></td><td class="off"></td><td class="off"></td>
+                </tr>
+        </tbody>
+    </table>
+
+    <div class="legend">
+        <div class="item"><span class="box on"></span> Світло є</div>
+        <div class="item"><span class="box maybe"></span> Можливо відключення</div>
+        <div class="item"><span class="box off"></span> Світла немає</div>
+    </div>
+</div>
+
+</body>
+</html>

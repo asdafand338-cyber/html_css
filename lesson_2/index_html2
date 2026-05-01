@@ -1,25 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <title>Vehicle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсовий проект: Rozetka Clone</title>
+    <style>
+        
+        * {
+            box-sizing: border-box; 
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.5;
+        }
+
+       
+        .container {
+            width: 90%; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+     
+        header {
+            background-color: #00a046; 
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        nav a:hover { color: #e0e0e0; }
+
+       
+        .section { padding: 40px 0; }
+        
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            flex: 1 1 calc(33.333% - 20px); 
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .img-box {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            margin-bottom: 15px;
+            border-radius: 4px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            color: #f84147; 
+            margin: 10px 0;
+        }
+
+        .btn {
+            background-color: #00a046;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        
+        .product-flex {
+            display: flex;
+            gap: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .info-side { flex: 1; }
+
+      
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-size: 14px; }
+        .form-group input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+     
+        @media (max-width: 800px) {
+            .product-card { flex: 1 1 calc(50% - 20px); } 
+            .product-flex { flex-direction: column; }
+        }
+
+        @media (max-width: 500px) {
+            .product-card { flex: 1 1 100%; } 
+            .header-flex { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; }
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Vehicle</h1>
-    <p>
-        A vehicle (from Latin: vehiculum<sup><b>[1]</b></sup>) is a machine that transports people or cargo. 
-        Vehicles include wagons, bicycles, motor vehicles (motorcycles, cars, trucks, buses), railed vehicles 
-        (trains, trams), watercraft (ships, boats), amphibious vehicles (screw-propelled vehicle, hovercraft), 
-        aircraft (airplanes, helicopters) and spacecraft.<sup><b>[2]</b></sup>
-    </p>
-    <p>
-        Land vehicles are classified broadly by what is used to apply steering and drive forces against the ground: 
-        wheeled, tracked, railed or skied. ISO 3833-1977 is the standard, also internationally used in legislation, 
-        for road vehicles types, terms and definitions.<sup><b>[3]</b></sup>
-    </p>
-    <hr>
-    <p><small>[1] - "vehicle, n.", OED Online, Oxford University Press, November 2010</small></p>
-    <p><small>[2] - Halsey, William D. (Editorial Director); MacMillan Contemporary Dictionary, page 1106. MacMillan Publishing, 1979. ISBN 0-02-080780-5</small></p>
-    <p><small>[3] - ISO 3833:1977 Road vehicles – Types – Terms and definitions Webstore.ansi.org</small></p>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">ROZETKA</div>
+        <nav>
+            <a href="#catalog">Каталог</a>
+            <a href="#item">Товар</a>
+            <a href="#order">Оформлення</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    
+    <section id="catalog" class="section">
+        <h2>Популярні товари</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="img-box"></div>
+                <h3>Ноутбук HP Laptop</h3>
+                <p class="price">25 000 ₴</p>
+                <button class="btn">Купити</button>
+            </div>
+            <div class="product-card">
+                <div class="img-box"></div>
+                <h3>Смартфон Samsung</h3>
+                <p class="price">12 500 ₴</p>
+                <button class="btn">Купити</button>
+            </div>
+            <div class="product-card">
+                <div class="img-box"></div>
+                <h3>Навушники Sony</h3>
+                <p class="price">4 200 ₴</p>
+                <button class="btn">Купити</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="item" class="section">
+        <h2>Опис товару</h2>
+        <div class="product-flex">
+            <div class="img-box" style="height: 300px; flex: 1;"></div>
+            <div class="info-side">
+                <h1>Ігровий монітор ASUS</h1>
+                <p>Екран 27", IPS, 144Hz. Ідеально підходить для геймерів та дизайнерів.</p>
+                <p class="price">10 999 ₴</p>
+                <button class="btn" style="width: auto;">Додати у кошик</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="order" class="section">
+        <h2>Кошик</h2>
+        <div class="form-container">
+            <form action="#">
+                <div class="form-group">
+                    <label>Прізвище та ім'я</label>
+                    <input type="text" placeholder="Шевченко Тарас" required>
+                </div>
+                <div class="form-group">
+                    <label>Ваш телефон</label>
+                    <input type="tel" placeholder="+380..." required>
+                </div>
+                <div class="form-group">
+                    <label>Місто доставки</label>
+                    <select>
+                        <option>Київ</option>
+                        <option>Одеса</option>
+                        <option>Львів</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Підтвердити замовлення</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 Курсова робота. Студент (твоє ім'я). Тема: Rozetka.</p>
+</footer>
+
 </body>
 </html>
